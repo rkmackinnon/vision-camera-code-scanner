@@ -9,6 +9,7 @@
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "ignoreDeprecations": "5.0",
+    "importsNotUsedAsValues": "error",
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "types": ["node"],
