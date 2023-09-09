@@ -9,7 +9,7 @@
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "remove", // Deprecated, but needs to be set to "remove",
-    "verbatimModuleSyntax": true // Add this line to use 'verbatimModuleSyntax',
+    "verbatimModuleSyntax": true, // Add this line to use 'verbatimModuleSyntax',
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "types": ["node"],
