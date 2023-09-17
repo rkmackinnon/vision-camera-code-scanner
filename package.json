@@ -1,6 +1,6 @@
 {
-  "name": "vision-camera-code-scanner",
-  "version": "0.2.0",
+  "name": "vision-camera-v3-barcode-scanner",
+  "version": "1.0.2",
   "description": "VisionCamera Frame Processor Plugin to read barcodes using MLKit Vision Barcode Scanning",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -16,7 +16,7 @@
     "android",
     "ios",
     "cpp",
-    "VisionCameraCodeScanner.podspec",
+    "VisionCameraV3BarcodeScanner.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build"
@@ -25,8 +25,8 @@
     "test": "jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "bob build",
-    "release": "release-it",
+    "prepare": "",
+    "release": "publishConfig",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods"
@@ -36,16 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/rodgomesc/vision-camera-code-scanner",
-  "author": "Rodrigo gomes <rodgomesc@gmail.com> (https://github.com/rodgomesc)",
+  "repository": "https://github.com/DeveloperMCD/vision-camera-v3-barcode-scanner.git",
+  "author": "Matthew McDevitt <developermcd@gmail.com> (https://github.com/DeveloperMCD)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rodgomesc/vision-camera-code-scanner/issues"
+    "url": "https://github.com/DeveloperMCD/vision-camera-v3-barcode-scanner/issues"
   },
-  "homepage": "https://github.com/rodgomesc/vision-camera-code-scanner#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
+  "homepage": "https://github.com/DeveloperMCD/vision-camera-v3-barcode-scanner#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.7",
     "@react-native-community/eslint-config": "^3.2.0",
@@ -88,12 +85,15 @@
       "tagName": "v${version}"
     },
     "npm": {
-      "publish": false
+      "publish": true
     },
     "github": {
-      "release": false
+      "release": true
     }
   },
+  "publishConfig": {
+	"registry": "https://registry.npmjs.org"
+  },  
   "eslintConfig": {
     "root": true,
     "extends": [
