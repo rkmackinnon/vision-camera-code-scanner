@@ -1,6 +1,6 @@
 {
   "name": "vision-camera-code-scanner",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "VisionCamera Frame Processor Plugin to read barcodes using MLKit Vision Barcode Scanning",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
