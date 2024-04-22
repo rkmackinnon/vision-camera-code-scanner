@@ -10992,31 +10992,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-vision-camera@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "react-native-vision-camera@npm:3.2.2"
-  dependencies:
-    string-hash-64: ^1.0.3
+"react-native-vision-camera@npm:4.0.1":
+  version: 4.0.1
+  resolution: "react-native-vision-camera@npm:4.0.1"
   peerDependencies:
+    "@shopify/react-native-skia": "*"
     react: "*"
     react-native: "*"
+    react-native-reanimated: "*"
     react-native-worklets-core: "*"
   peerDependenciesMeta:
+    "@shopify/react-native-skia":
+      optional: true
+    react-native-reanimated:
+      optional: true
     react-native-worklets-core:
       optional: true
-  checksum: a2efb8a19036bf8767dd6861b29725e5b0fa7ed2bedfcd17b409b34bfabe88d1dc63f9ea7cb365d0867b326df4608901488841ed1b0ee6c95cda42f737a05db3
+  checksum: 7698a003e74b3bc82e297fe9088b88dc92d6ba73b12baad99c85a6f3520c333715baec10d64d7adc1dee489701ca246f9444db974dfef3b748a1845081260ffa
   languageName: node
   linkType: hard
 
-"react-native-worklets-core@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "react-native-worklets-core@npm:0.2.1"
+"react-native-worklets-core@npm:1.1.1":
+  version: 1.1.1
+  resolution: "react-native-worklets-core@npm:1.1.1"
   dependencies:
     string-hash-64: ^1.0.3
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 1f01358c7d715ae0838866b43cf437b5e2ac8f7beb8793814a8bc4da9700f0f18935aedaf4b36e56e1e6729f6b205181fb367a7f3d4404b0711be8c894679379
+  checksum: 47ec36201b3decbf1d9e3337f4bc06de3b319285564f97b32799d88f1ce37120ccb33dcd937271d56027876b695d283d320174a9d84ba0c0163fde91ce8fc3f7
   languageName: node
   linkType: hard
 
@@ -12968,8 +12972,8 @@ __metadata:
     react: ^18.2.0
     react-native: ^0.72.3
     react-native-builder-bob: ^0.21.3
-    react-native-vision-camera: ^3.2.2
-    react-native-worklets-core: ^0.2.1
+    react-native-vision-camera: 4.0.1
+    react-native-worklets-core: 1.1.1
     release-it: ^16.1.3
     typescript: ^5.1.6
   peerDependencies:

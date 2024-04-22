@@ -1,26 +1,36 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-import { Platform, StyleSheet, Text } from 'react-native';
-import { Camera, useCameraDevice, useCameraFormat } from 'react-native-vision-camera';
+import { StyleSheet, Text } from 'react-native';
+import {
+  Camera,
+  useCameraDevice,
+  useCameraFormat,
+} from 'react-native-vision-camera';
 import { BarcodeFormat, useScanBarcodes } from 'vision-camera-code-scanner';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from './Constants'
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from './Constants';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(false);
-
-  const [frameProcessor, barcodes] = useScanBarcodes([
+  const [types] = useState<Array<BarcodeFormat>>([
     BarcodeFormat.ALL_FORMATS,
     BarcodeFormat.QR_CODE,
+    BarcodeFormat.CODE_128,
   ]);
 
-  const [cameraPosition, ] = useState<'front' | 'back'>('back');
+  const [frameProcessor, barcodes] = useScanBarcodes(types);
+
+  const [cameraPosition] = useState<'front' | 'back'>('back');
 
   const device = useCameraDevice(cameraPosition, {
-    physicalDevices: ['ultra-wide-angle-camera', 'wide-angle-camera', 'telephoto-camera'],
+    physicalDevices: [
+      'ultra-wide-angle-camera',
+      'wide-angle-camera',
+      'telephoto-camera',
+    ],
   });
 
-  const [targetFps, ] = useState(30);
+  const [targetFps] = useState(30);
 
   const screenAspectRatio = SCREEN_HEIGHT / SCREEN_WIDTH;
   const format = useCameraFormat(device, [
@@ -32,7 +42,7 @@ export default function App() {
   ]);
 
   const fps = Math.min(format?.maxFps ?? 1, targetFps);
-  
+
   useEffect(() => {
     (async () => {
       const status = await Camera.requestCameraPermission();
@@ -40,10 +50,7 @@ export default function App() {
     })();
   }, []);
 
-  useEffect(() => {
-    console.log(barcodes);
-  }, [barcodes]);
-
+  // return <View style={{ flex: 1, backgroundColor: 'red' }} />;
   return (
     device != null &&
     hasPermission && (
@@ -56,7 +63,6 @@ export default function App() {
           isActive={true}
           orientation="portrait"
           frameProcessor={frameProcessor}
-          pixelFormat={Platform.OS === "ios" ? "native" : "yuv"}
         />
         {barcodes.map((barcode, idx) => (
           <Text key={idx} style={styles.barcodeTextURL}>
