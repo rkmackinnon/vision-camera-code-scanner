@@ -10,9 +10,8 @@
 @implementation RegisterPlugins
 
     + (void) load {
-        [FrameProcessorPluginRegistry addFrameProcessorPlugin:@"scanCodes"
-                                              withInitializer:^FrameProcessorPlugin*(NSDictionary* options) {
-            return [[VisionCameraCodeScanner alloc] init];
+        [FrameProcessorPluginRegistry addFrameProcessorPlugin:@"scanCodes" withInitializer:^FrameProcessorPlugin * _Nonnull(VisionCameraProxyHolder * _Nonnull proxy, NSDictionary * _Nullable options) {
+            return [[VisionCameraCodeScanner alloc] initWithProxy:proxy withOptions:options];
         }];
     }
 

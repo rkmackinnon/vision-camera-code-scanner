@@ -369,7 +369,7 @@ PODS:
   - React-jsinspector (0.72.3)
   - React-logger (0.72.3):
     - glog
-  - react-native-worklets-core (0.2.2):
+  - react-native-worklets-core (1.1.1):
     - React
     - React-callinvoker
     - React-Core
@@ -486,12 +486,19 @@ PODS:
   - RNStaticSafeAreaInsets (2.2.0):
     - React-Core
   - SocketRocket (0.6.1)
-  - VisionCamera (3.3.1):
+  - VisionCamera (4.0.1):
+    - VisionCamera/Core (= 4.0.1)
+    - VisionCamera/FrameProcessors (= 4.0.1)
+    - VisionCamera/React (= 4.0.1)
+  - VisionCamera/Core (4.0.1)
+  - VisionCamera/FrameProcessors (4.0.1):
     - React
     - React-callinvoker
-    - React-Core
     - react-native-worklets-core
-  - VisionCameraCodeScanner (0.2.0):
+  - VisionCamera/React (4.0.1):
+    - React-Core
+    - VisionCamera/FrameProcessors
+  - VisionCameraCodeScanner (3.0.0):
     - GoogleMLKit/BarcodeScanning
     - React-Core
     - VisionCamera
@@ -687,7 +694,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 59d1eb03af7d30b7d66589c410f13151271e8006
   React-jsinspector: b511447170f561157547bc0bef3f169663860be7
   React-logger: c5b527272d5f22eaa09bb3c3a690fee8f237ae95
-  react-native-worklets-core: 81629f0e2629a63336221a8e6a60aaa5cdbd1bf9
+  react-native-worklets-core: ff2156b19b8f4a979fa0db52659e39a755b1454b
   React-NativeModulesApple: c57f3efe0df288a6532b726ad2d0322a9bf38472
   React-perflogger: 6bd153e776e6beed54c56b0847e1220a3ff92ba5
   React-RCTActionSheet: c0b62af44e610e69d9a2049a682f5dba4e9dff17
@@ -707,8 +714,8 @@ SPEC CHECKSUMS:
   ReactCommon: 3ccb8fb14e6b3277e38c73b0ff5e4a1b8db017a9
   RNStaticSafeAreaInsets: 055ddbf5e476321720457cdaeec0ff2ba40ec1b8
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  VisionCamera: f649cd0c0fa6266f1cd5e0787a7c9583ca143b3a
-  VisionCameraCodeScanner: d5db4e917a0ebcb91279a423582b6a67a52dfd89
+  VisionCamera: 8e00df84a76cf26ca70ecd3b6ed05dc0d3b60beb
+  VisionCameraCodeScanner: 22eada1e441dffb93acefde4630c814d517e2db1
   Yoga: 8796b55dba14d7004f980b54bcc9833ee45b28ce
 
 PODFILE CHECKSUM: 2e1ad7955abe1ae60b3ab8ca0dba11ab9b2b5b09
