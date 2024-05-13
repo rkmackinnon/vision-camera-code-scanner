@@ -1,31 +1,56 @@
-import * as React from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 
 import { StyleSheet, Text } from 'react-native';
-import { useCameraDevices } from 'react-native-vision-camera';
-import { Camera } from 'react-native-vision-camera';
-import { useScanBarcodes, BarcodeFormat } from 'vision-camera-code-scanner';
+import {
+  Camera,
+  useCameraDevice,
+  useCameraFormat,
+} from 'react-native-vision-camera';
+import { BarcodeFormat, useScanBarcodes } from 'vision-camera-code-scanner';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from './Constants';
 
 export default function App() {
-  const [hasPermission, setHasPermission] = React.useState(false);
-  const devices = useCameraDevices();
-  const device = devices.back;
+  const [hasPermission, setHasPermission] = useState(false);
+  const [types] = useState<Array<BarcodeFormat>>([
+    BarcodeFormat.ALL_FORMATS,
+    BarcodeFormat.QR_CODE,
+    BarcodeFormat.CODE_128,
+  ]);
 
-  const [frameProcessor, barcodes] = useScanBarcodes(
-    [BarcodeFormat.ALL_FORMATS],
-    { checkInverted: true }
-  );
+  const [frameProcessor, barcodes] = useScanBarcodes(types);
 
-  React.useEffect(() => {
+  const [cameraPosition] = useState<'front' | 'back'>('back');
+
+  const device = useCameraDevice(cameraPosition, {
+    physicalDevices: [
+      'ultra-wide-angle-camera',
+      'wide-angle-camera',
+      'telephoto-camera',
+    ],
+  });
+
+  const [targetFps] = useState(30);
+
+  const screenAspectRatio = SCREEN_HEIGHT / SCREEN_WIDTH;
+  const format = useCameraFormat(device, [
+    { fps: targetFps },
+    { videoAspectRatio: screenAspectRatio },
+    { videoResolution: 'max' },
+    { photoAspectRatio: screenAspectRatio },
+    { photoResolution: 'max' },
+  ]);
+
+  const fps = Math.min(format?.maxFps ?? 1, targetFps);
+
+  useEffect(() => {
     (async () => {
       const status = await Camera.requestCameraPermission();
-      setHasPermission(status === 'authorized');
+      setHasPermission(status === 'granted');
     })();
   }, []);
 
-  React.useEffect(() => {
-    console.log(barcodes);
-  }, [barcodes]);
-
+  // return <View style={{ flex: 1, backgroundColor: 'red' }} />;
   return (
     device != null &&
     hasPermission && (
@@ -33,9 +58,11 @@ export default function App() {
         <Camera
           style={StyleSheet.absoluteFill}
           device={device}
+          format={format}
+          fps={fps}
           isActive={true}
+          orientation="portrait"
           frameProcessor={frameProcessor}
-          frameProcessorFps={5}
         />
         {barcodes.map((barcode, idx) => (
           <Text key={idx} style={styles.barcodeTextURL}>
