@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/rodgomesc/vision-camera-code-scanner",
-  "author": "Rodrigo gomes <rodgomesc@gmail.com> (https://github.com/rodgomesc)",
+  "repository": "https://github.com/ismaelsousa/vision-camera-code-scanner",
+  "author": "Ismael Sousa <ismael1998sousa@gmail.com> (https://github.com/ismaelsousa)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rodgomesc/vision-camera-code-scanner/issues"
+    "url": "https://github.com/ismaelsousa/vision-camera-code-scanner/issues"
   },
-  "homepage": "https://github.com/rodgomesc/vision-camera-code-scanner#readme",
+  "homepage": "https://github.com/ismaelsousa/vision-camera-code-scanner#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
