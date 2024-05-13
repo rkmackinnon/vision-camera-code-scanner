@@ -1,5 +1,5 @@
 import {
-  type FrameProcessor,
+  ReadonlyFrameProcessor,
   useFrameProcessor,
 } from 'react-native-vision-camera';
 import { useState } from 'react';
@@ -16,7 +16,7 @@ import { useRunInJS } from 'react-native-worklets-core';
 export function useScanBarcodes(
   types: BarcodeFormat[],
   options: CodeScannerOptions = DefaultCodeScannerOptions
-): [FrameProcessor, Barcode[]] {
+): [ReadonlyFrameProcessor, Barcode[]] {
   const [barcodes, setBarcodes] = useState<Barcode[]>([]);
 
   const setBarcodeInJS = useRunInJS((e) => setBarcodes(e), [setBarcodes]);
